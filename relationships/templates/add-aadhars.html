@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title> Add Marks </title>
+</head>
+<body>
+	<form action = {% url 'add_aadhars' %} method = 'POST'>
+	{% csrf_token %}
+		Aadhar_no:<input type = 'number' name = 'Aadhar_no' required><br><br>
+		<select name = 'person'>
+			{% for person in persons %}
+			<option value = 'person.id'>{{person.Name}}</option>
+			{% endfor %}
+		</select><br><br>
+		<input type = "submit" value = "save">
+	</form>
+	{% if msg %}
+		<h1>{{ msg }}</h1>
+	{% endif %}
+</body>
+</html>

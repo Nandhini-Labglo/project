@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title> List Students Table </title>
+</head>
+<body  style = 'text-align:center;'>
+<center>
+<h1>Students Table</h1><br>
+
+	<table border = '1' style = 'Background-color:lightyellow;text-align:center;'>
+			<tr>
+			<thead style = 'Background-color:aqua;'>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Roll_no</th>
+				<th>Address</th>
+				<th>Created_date</th>
+				<th>Modified_date</th>
+				<th>Image</th>
+				<th>View</th>
+				<th>Update</th>
+				<th>Delete</th>
+			</thead>	
+			</tr>
+			
+			{% for x in form %}
+		    <tr>
+		    
+		        <td>{{ x.id }}</td>
+		    	<td>{{ x.Name }}</td>
+		    	<td>{{ x.Roll_no }}</td>
+		    	<td>{{ x.Address }}</td>
+				<td>{{ x.created_date }}</td>
+				<td>{{ x.modified_date }}</td>
+		    	<td><img src = "{{ x.upload_image.url }}" , width = '150px' ,height = '150px'></td>
+		    	<td><a href = 'http://127.0.0.1:8000/relationships/list_mark/{{x.id}}'><button>View</button></a></td>
+		    	<td><a href = 'http://127.0.0.1:8000/relationships/update/{{x.id}}'><button type="submit">EDIT</button></a></td>
+		    	<td><a href = 'http://127.0.0.1:8000/relationships/delete/{{x.id}}'><button type="submit">DELETE</button></a></td>
+		    	 
+		    </tr>
+		    {% endfor %}
+	</table><br><br>
+	{% for message in messages %}
+		{{message}}
+	{% endfor %}
+<a href="{% url 'logout' %}"><button>Logout</button></a>
+<a href="{% url 'send_jsons' %}"><button>Json File</button></a>
+<a href = 'http://127.0.0.1:8000/relationships/add'><button type="submit">ADD</button></a>
+</center>		  
+</body>
+</html>	
+

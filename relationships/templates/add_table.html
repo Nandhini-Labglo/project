@@ -1,0 +1,18 @@
+<html>
+
+<body>
+	<center>
+		<h1>Add Student table</h1>
+		<form method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<table>
+				{{ form.as_table }}
+			</table>
+			<button type="submit">ADD</button>
+		</form>
+		<a href='http://127.0.0.1:8000/relationships/list'><button>BACK</button><a>
+
+	</center>
+</body>
+
+</html>

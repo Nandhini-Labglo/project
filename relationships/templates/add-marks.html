@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title> Add Marks </title>
+</head>
+<body>
+	<form action = {% url 'add_marks' %} method = 'POST'>
+	{% csrf_token %}
+		Marks:<input type = 'number' name = 'marks'  required><br><br>
+		<select name = 'student'>
+			{% for student in students %}
+			<option value = 'student.id'>{{student.Name}}</option>
+			{% endfor %}
+		</select><br><br>
+		<input type = "submit" value = "save" >
+	</form>
+	{% if msg %}
+		<h1>{{ msg }}</h1>
+	{% endif %}
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<body>
+<center>
+<h1>Update Mark Table</h1>	
+	<form  method="POST" enctype="multipart/form-data">
+		
+		{% csrf_token %}
+		<table>
+	
+		{{ form.as_table }}
+		</table>
+		<a href = 'http://127.0.0.1:8000/relationships/update_marks'><button type="submit">Update</button></a>
+	</form>
+	
+
+<a href = 'javascript:history.go(-1)'><button>BACK</button><a> 
+</center>
+</html>
+</body>

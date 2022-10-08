@@ -1,0 +1,49 @@
+<html>
+<head>
+	<title> List Marks Table </title>
+</head>
+<body>
+<center>
+<h1>Marks Table</h1><br>
+
+	<table border = '1' style = 'Background-color:lightyellow;text-align:center;'>
+	
+			<tr>
+			<thead style = 'Background-color:aqua;'>	
+				<th>Student_ID</th>
+				<th>Mark_ID</th>
+				<th>Subject</th>
+				<th>Mark</th>
+				<th>Created_date</th>
+				<th>Modified_date</th>
+				<th>Created_by</th>
+				<th>Modified_by</th>
+				<th>Update</th>
+				<th>Delete</th>
+			</thead>	
+			</tr>
+			
+			{% for data in form1 %}
+		    <tr>
+		    
+		        <td>{{ data.student_id}}</td>
+		        <td>{{ data.id }}</td>
+		    	<td>{{ data.subject }}</td>
+		    	<td>{{ data.mark }}</td>
+				<td>{{ data.created_date }}</td>
+				<td>{{ data.modified_date }}</td>
+				<td>{{ data.created_by }}</td>
+				<td>{{ data.modified_by }}</td>
+		    	<td><a href = 'http://127.0.0.1:8000/relationships/update_marks/{{data.id}}'><button type="submit">EDIT</button></a></td>
+		    	<td><a href = 'http://127.0.0.1:8000/relationships/delete_marks/{{data.id}}'><button type="submit">DELETE</button></a></td>
+		    	<td><a href="http://127.0.0.1:8000/relationships/send_json/{{data.id}}"><button>Json File</button></a></td>
+		    </tr>
+		  	{% endfor %}
+		  		
+	</table><br><br>
+			
+<a href = 'http://127.0.0.1:8000/relationships/add_marks'><button type="submit">ADD</button></a> 
+<a href = 'http://127.0.0.1:8000/relationships/list'><button>BACK</button><a> 
+</center>
+</body>
+</html>

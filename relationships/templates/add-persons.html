@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title> Add Persons </title>
+</head>
+<body style = "text-align: center;">
+	<form action = {% url 'add_persons' %} method = 'POST'>
+	{% csrf_token %}
+		Name:<input type = 'text' name = 'name' required><br><br>
+		Email<input type = 'email' name = 'Email' required><br><br>
+		Mobile:<input type = 'text' name = 'Mobile' required><br><br>
+		<input type = "submit" value = "save" >
+	</form>
+	{% if msg %}
+		<h1>{{ msg }}</h1>
+	{% endif %}
+</body>
+</html>
